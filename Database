@@ -1,0 +1,99 @@
+CREATE TABLE User (
+    User_ID INT AUTO_INCREMENT PRIMARY KEY,
+    First_Name VARCHAR(50) NOT NULL,
+    Last_Name VARCHAR(50) NOT NULL,
+    User_Email VARCHAR(150) UNIQUE NOT NULL,
+    Password_Hash VARCHAR(255) NOT NULL,
+    Contact_Num VARCHAR(15),
+    Location VARCHAR(225),
+    Role ENUM('User', 'Veterinarian') DEFAULT 'User', --User role
+    Status ENUM('Active', 'Deactivated') DEFAULT 'Active',  -- User account status
+    Profile_Picture BLOB,
+    Created_At DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE Admin (
+    Admin_ID INT AUTO_INCREMENT PRIMARY KEY,
+    Admin_Email VARCHAR(150) UNIQUE NOT NULL,     -- Email used for admin login
+    Password_Hash VARCHAR(255) NOT NULL,          -- Securely hashed password
+    Full_Name VARCHAR(100) NOT NULL,              -- Admin's full name
+    Contact_Num VARCHAR(15),                      -- Admin's contact number
+    Role ENUM('SuperAdmin', 'Moderator') DEFAULT 'Moderator', -- Admin role
+    Created_At DATETIME DEFAULT CURRENT_TIMESTAMP -- Timestamp of account creation
+);
+
+CREATE TABLE Veterinary (
+    Vet_ID INT AUTO_INCREMENT PRIMARY KEY,
+    User_ID INT,                                   -- Links to User table
+    Name VARCHAR(100) NOT NULL,                   -- Veterinary clinic name
+    Address VARCHAR(200) NOT NULL,                -- Clinic address
+    Contact_Num VARCHAR(15) NOT NULL,             -- Veterinary contact number
+    Vet_Email VARCHAR(150) UNIQUE NOT NULL,       -- Email for the veterinarian
+    Location_Longitude DECIMAL(9, 6) NOT NULL,    -- Longitude for geolocation
+    Location_Latitude DECIMAL(8, 6) NOT NULL,     -- Latitude for geolocation
+    Hours_Of_Work VARCHAR(50) NOT NULL,           -- Opening and closing hours
+    FOREIGN KEY (User_ID) REFERENCES User(User_ID) ON DELETE CASCADE -- Relates to the User who registered
+);
+
+CREATE TABLE Pet (
+    Pet_ID INT AUTO_INCREMENT PRIMARY KEY,
+    User_ID INT NOT NULL,                         -- Links to User table
+    Pet_Name VARCHAR(100) NOT NULL,
+    Category ENUM('Dog', 'Cat', 'Other') NOT NULL,
+    Age INT,
+    Description TEXT,
+    Sex ENUM('Male', 'Female') NOT NULL,
+    Photo BLOB,
+    FOREIGN KEY (User_ID) REFERENCES User(User_ID) ON DELETE CASCADE -- Relates to pet owner
+);
+
+CREATE TABLE LostPetAlert (
+    Alert_ID INT AUTO_INCREMENT PRIMARY KEY,
+    User_ID INT NOT NULL,                         -- Links to User table
+    Pet_ID INT NOT NULL,                          -- Links to Pet table
+    Alert_DateTime DATETIME DEFAULT CURRENT_TIMESTAMP,
+    Location VARCHAR(225) NOT NULL,
+    Description TEXT,
+    Status ENUM('Active', 'Resolved') DEFAULT 'Active',
+    Upload BLOB,
+    FOREIGN KEY (User_ID) REFERENCES User(User_ID) ON DELETE CASCADE,
+    FOREIGN KEY (Pet_ID) REFERENCES Pet(Pet_ID) ON DELETE CASCADE
+);
+
+CREATE TABLE SightingReport (
+    Sighting_ID INT AUTO_INCREMENT PRIMARY KEY,
+    Alert_ID INT NOT NULL,                        -- Links to LostPetAlert table
+    User_ID INT NOT NULL,                         -- Links to User table
+    Location VARCHAR(225) NOT NULL,
+    Description TEXT,
+    Photo BLOB,
+    Reported_DateTime DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (Alert_ID) REFERENCES LostPetAlert(Alert_ID) ON DELETE CASCADE,
+    FOREIGN KEY (User_ID) REFERENCES User(User_ID) ON DELETE CASCADE
+);
+
+CREATE TABLE Booking (
+    Booking_ID INT AUTO_INCREMENT PRIMARY KEY,
+    Vet_ID INT NOT NULL,                          -- Links to Veterinary table
+    User_ID INT NOT NULL,                         -- Links to User table
+    Pet_ID INT NOT NULL,                          -- Links to Pet table
+    App_Start DATETIME NOT NULL,                  -- Appointment start time
+    App_End DATETIME NOT NULL,                    -- Appointment end time
+    Issue TEXT,
+    FOREIGN KEY (Vet_ID) REFERENCES Veterinary(Vet_ID) ON DELETE CASCADE,
+    FOREIGN KEY (User_ID) REFERENCES User(User_ID) ON DELETE CASCADE,
+    FOREIGN KEY (Pet_ID) REFERENCES Pet(Pet_ID) ON DELETE CASCADE,
+    UNIQUE (Vet_ID, App_Start, App_End)           -- Prevents overlapping bookings for the same vet
+);
+
+CREATE TABLE AdoptionPost (
+    Adoption_ID INT AUTO_INCREMENT PRIMARY KEY,
+    User_ID INT NOT NULL,                         -- Links to User table
+    Pet_Name VARCHAR(100) NOT NULL,
+    Pet_Age INT,
+    Description TEXT NOT NULL,
+    Photo BLOB,
+    Posted_Date DATE DEFAULT CURRENT_DATE,
+    Status ENUM('Available', 'Adopted') DEFAULT 'Available',
+    FOREIGN KEY (User_ID) REFERENCES User(User_ID) ON DELETE CASCADE
+);
