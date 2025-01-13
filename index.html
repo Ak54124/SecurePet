@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecurePet</title>
+
+<!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Galada&family=Headland+One&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!-- Font Awesome for social media icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+<!-- Link to CSS -->
+   <link rel="stylesheet" href="vet_navbar.css">
+   <link rel="stylesheet" href="vet_cornercircle.css">
+   <link rel="stylesheet" href="landing.css">
+</head>
+<body>
+    <div class="corner-circle"></div>
+
+
+    <nav class="navbar">
+        <div class="nav-left">
+            <a href="#" class="site-name">SecurePet</a>
+        </div>
+        
+        
+        <div class="nav-right">
+            <button class="nav-login-btn" onclick="showLoginModal('user')">Login as Pet Owner</button>
+            <button class="nav-login-btn vet" onclick="showLoginModal('vet')">Login as Veterinarian</button>
+
+            <a href="https://facebook.com/SecurePet" target="_blank" class="social-icon">
+                <i class="fab fa-facebook"></i>
+            </a>
+
+            <a href="https://instagram.com/SecurePet_" target="_blank" class="social-icon">
+                <i class="fab fa-instagram"></i>
+            </a>
+        </div>
+    </nav>
+
+
+
+<!-- Hero Section -->
+    <div class="hero-container">
+        <div class="hero-text">
+            <p class="subtitle">Connecting Hearts, Finding Homes</p>
+            <h1>Imagine a world where losing your pet <em>does not</em> mean losing hope.</h1>
+
+        </div>
+        <div class="hero-images">
+            <img src="images/Pata.png" alt="Dog" class="dog-image">
+            <img src="images/Billy.png" alt="Cat" class="cat-image">
+        </div>
+
+    </div>
+
+
+
+<!-- Login Modal -->
+<div id="loginModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2 id="loginTitle">Login</h2>
+        <form id="loginForm">
+            <input type="email" placeholder="Email" required>
+            <input type="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        
+            <p class="signup-link">Don't have an account? <a href="sign_up.html">Sign up</a></p>   
+
+        </form>
+    </div>
+</div>
+
+
+
+<!-- Login Section -->
+    <section class="login-section">
+        <div class="star-divider">✦</div>
+        <h2>If you can <em>dream it</em>, we can help find it</h2>
+        <p class="description">We provide a unique platform connecting pet owners with veterinarians, ensuring every lost pet has a chance to return home.</p>
+        <div class="login-options">
+            <button class="login-btn vet" onclick="window.location.href='vet_signup.html'">Sign up as Veterinarian</button>
+            <button class="login-btn user" onclick="window.location.href='sign_up.html'">Sign Up as Pet Owner</button>
+           
+        </div>
+    </section>
+
+
+<!-- Link to external JavaScript file -->
+<script src="script.js"></script>
+
+</body>
+</html>

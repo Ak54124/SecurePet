@@ -1,0 +1,327 @@
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f8f9fc;
+    color: #1a1a1a;
+    min-height: 100vh;
+}
+
+/* Corner Circle */
+.corner-circle {
+    width: 550px;
+    height: 550px;
+    background-color: rgba(217, 218, 243, 1);
+    border-radius: 50%;
+    position: fixed;
+    top: 55%;
+    left: -150px;
+    transform: translateY(-50%);
+    filter: blur(50px);
+    z-index: -1;
+}
+
+/*navbar section*/
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(247, 247, 248, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.nav-left .site-name {
+    font-family: 'Galada', cursive;
+    font-size: 1.875rem;
+    text-decoration: none;
+    color: black;
+}
+
+.nav-center {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-center a {
+    text-decoration: none;
+    color: #252424;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.nav-center a:hover {
+    color:rgba(147, 133, 226, 0.8);
+}
+
+.nav-right {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.social-icon {
+    color:rgba(147, 133, 226, 0.8);
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+    color: #333;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .nav-center {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .nav-right {
+        margin-top: 1rem;
+    }
+}
+
+/* Hero Section */
+.hero-container {
+    padding: 6rem 4rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.hero-text {
+    max-width: 600px;
+}
+
+.hero-text .subtitle {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+.hero-text h1 {
+    font-family: 'Gilda Display', serif;
+    font-size: 3.5rem;
+    line-height: 1.2;
+    margin-bottom: 2rem;
+}
+
+.hero-text h1 em {
+    font-style: italic;
+    color: rgba(147, 133, 226, 0.8);
+}
+
+/* Hero Images */
+.hero-images {
+    position: relative;
+    height: 700px;
+}
+
+.Pata-image, .Billy-image {
+    position: absolute;
+    max-height: 400px;
+    object-fit: contain;
+}
+
+.Pata-image {
+    right: 40%;
+    top: 0;
+    z-index: 2;
+}
+
+.Billy-image {
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+}
+
+/* Login Section */
+.login-section {
+    padding: 4rem;
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.star-divider {
+    font-size: 2rem;
+    color:rgba(147, 133, 226, 0.8);
+    margin: 2rem 0;
+}
+
+.login-section h2 {
+    font-family: 'Gilda Display', serif;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.login-section .description {
+    color: #666;
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto 3rem;
+}
+
+/* Login Buttons */
+.nav-login-btn {
+    padding: 0.5rem 1.5rem;
+    background:rgba(147, 133, 226, 0.8);
+    color: white;
+    border: 2px solid rgba(147, 133, 226, 0.8);
+    border-radius: 6px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-right: 1.5rem;
+}
+
+.nav-login-btn:hover {
+    background: transparent;
+    color:rgba(147, 133, 226, 0.8);
+}
+
+/* Update media query for responsive design */
+@media (max-width: 768px) {
+    .nav-login-btn {
+        margin: 0.5rem 0;
+    }
+}
+
+.login-options {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+}
+
+
+
+/*Login button as user or vet*/
+.login-btn {
+    padding: 1rem 2.5rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Normal state for both buttons */
+.login-btn.vet,
+.login-btn.user {
+    background:rgba(147, 133, 226, 0.8);
+    color: white;
+    border: 2px solid rgba(147, 133, 226, 0.5);
+}
+
+/* Hover state for vet button */
+.login-btn.vet:hover {
+    background: transparent;
+    color:rgba(147, 133, 226, 0.8);
+    border: 2px solid  rgba(147, 133, 226, 0.5);
+}
+
+/* Hover state for user button */
+.login-btn.user:hover {
+    background: transparent;
+    color:rgba(147, 133, 226, 0.8);
+    border: 2px solid rgba(147, 133, 226, 0.5);
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:rgba(147, 133, 226, 0.8);
+    z-index: 1000;
+}
+
+.modal-content {
+    background: white;
+    padding: 3rem;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 400px;
+    margin: 10vh auto;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    right: 1.5rem;
+    top: 1.5rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+#loginForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+#loginForm input {
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+#loginForm button {
+    background:rgba(147, 133, 226, 0.8);
+    color: white;
+    padding: 1rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.signup-link {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-container {
+        grid-template-columns: 1fr;
+        padding: 2rem;
+        text-align: center;
+    }
+
+    .hero-text h1 {
+        font-size: 2.5rem;
+    }
+
+    .login-options {
+        flex-direction: column;
+    }
+
+    .hero-images {
+        height: 300px;
+    }
+}
