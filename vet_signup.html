@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecurePet</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Galada&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="vet_signup.css">
+</head>
+<body>
+    <div class="signup-form">
+        <div class="site-name">Securepet</div>
+        
+        <div class="sign-up info">
+            <form id="signupForm" method="POST" action="register_vet.php">
+                <!-- Personal Information -->
+                <input class="name" type="text" name="name" id="name" 
+                       placeholder="Full Name" required>
+
+                <input class="license" type="text" name="license" id="license" 
+                       placeholder="Veterinary License Number" required>
+
+                <input class="email" type="email" name="email" id="email" 
+                       placeholder="Email" required>
+
+                <input class="password" type="password" name="password" id="password" 
+                       placeholder="Password" required minlength="8">
+
+                <input class="confirm-password" type="password" name="confirm_password" 
+                       id="confirm_password" placeholder="Confirm Password" required minlength="8">
+
+                <!-- Professional Information -->
+                <select class="region" name="region" id="region" required>
+                    <option value="">Select Region</option>
+                    <option value="North">North</option>
+                    <option value="South">South</option>
+                    <option value="East">East</option>
+                    <option value="West">West</option>
+                    <option value="Central">Central</option>
+                </select>
+
+                <input class="clinic" type="text" name="clinic_name" id="clinic_name" 
+                       placeholder="Clinic Name">
+
+                <input class="contact" type="tel" name="contact_number" id="contact_number" 
+                       placeholder="Contact Number" required>
+
+                <textarea class="address" name="address" id="address" 
+                          placeholder="Clinic Address" required></textarea>
+
+                <div class="working-hours">
+                    <p class="hours-label">Working Hours</p>
+                    <input type="text" name="working_hours" id="working_hours" 
+                           placeholder="e.g., Mon-Fri: 9AM-5PM" required>
+                </div>
+            </form>
+        </div>
+
+        <div class="line">──────────── or ────────────</div>
+        <p class="login-link">Already have an account? <a href="sign_in.html">Log in here</a></p>
+
+        <button class="signup-btn" type="submit" form="signupForm" id="submitBtn">Sign up</button>
+    </div>
+
+    <script src="scripts/vet_signup.js"></script>
+</body>
+</html>

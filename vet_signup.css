@@ -1,0 +1,230 @@
+/* Base Styles */
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f5f5f5;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.signup-form {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(147, 133, 226, 0.2);
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Site Name */
+.site-name {
+  font-family: Galada;
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+/* Form Styles */
+.signup-info form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Input Fields */
+.name, .surname, .email, .password, 
+.confirm-password, .contact, .address, 
+.license, .clinic, .region {
+  height: 50px;
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  padding: 0 1rem;
+  font-size: 1rem;
+  box-sizing: border-box;
+  margin: 5px;
+}
+
+/* Textarea specific styles */
+.address {
+  min-height: 100px;
+  padding: 1rem;
+  resize: vertical;
+  height: auto;
+}
+
+/* Select dropdown specific styles */
+.region {
+  background: white;
+  cursor: pointer;
+}
+
+/* Focus states */
+.name:focus, .surname:focus, .email:focus, 
+.password:focus, .confirm-password:focus,
+.contact:focus, .address:focus, 
+.license:focus, .clinic:focus, .region:focus {
+  outline: none;
+  border-color: rgba(147, 133, 226, 0.5);
+}
+
+/* Divider Line */
+.line {
+  display: block;
+  text-align: center;
+  color: #ddd;
+  margin: 1.5rem 0;
+}
+
+/* Submit Button */
+.signup-btn {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 8px;
+  border: none;
+  background-color: rgba(147, 133, 226, 0.8);
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.signup-btn:hover {
+  background-color: rgba(147, 133, 226, 1);
+}
+
+/* Login Link */
+.login-link {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.login-link a {
+  color: #502390;
+  text-decoration: none;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
+}
+
+/* Working Hours Section */
+.working-hours {
+  margin: 5px;
+}
+
+.hours-label {
+  text-align: left;
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+}
+
+/* Error States */
+.input-error {
+  border-color: #ff4d4d !important;
+}
+
+.error-message {
+  color: #ff4d4d;
+  font-size: 0.8rem;
+  margin-top: -5px;
+  margin-bottom: 5px;
+}
+
+/* Required Field Indicator */
+.required::after {
+  content: "*";
+  color: #ff4d4d;
+  margin-left: 4px;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 480px) {
+  .signup-form {
+      margin: 1rem;
+      padding: 1.5rem;
+  }
+
+  .site-name {
+      font-size: 2rem;
+  }
+
+  .name, .surname, .email, .password, 
+  .confirm-password, .contact, .address,
+  .license, .clinic, .region {
+      font-size: 0.9rem;
+  }
+
+  .signup-btn {
+      padding: 0.8rem;
+  }
+}
+
+/* Loading State */
+.signup-btn.loading {
+  position: relative;
+  color: transparent;
+}
+
+.signup-btn.loading::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 50%;
+  left: 50%;
+  margin: -10px 0 0 -10px;
+  border: 2px solid white;
+  border-radius: 50%;
+  border-top-color: transparent;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+      transform: rotate(360deg);
+  }
+}
+
+/* Additional styles for vet signup */
+.region {
+  height: 50px;
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  padding: 0 1rem;
+  font-size: 1rem;
+  box-sizing: border-box;
+  margin: 5px;
+  background: white;
+}
+
+.address {
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  padding: 1rem;
+  font-size: 1rem;
+  box-sizing: border-box;
+  margin: 5px;
+  min-height: 100px;
+  resize: vertical;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.hours-label {
+  text-align: left;
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+}
+
+.working-hours {
+  margin: 5px;
+}
