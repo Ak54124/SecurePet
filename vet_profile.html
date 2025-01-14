@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecurePet</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Galada&family=Headland+One&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
+   <!-- Link to CSS -->
+   <link rel="stylesheet" href="vet_navbar.css">
+   <link rel="stylesheet" href="vet_cornercircle.css">
+   <link rel="stylesheet" href="vet_profile.css">
+</head>
+
+<body>
+    <div class="corner-circle"></div>
+
+    <div class="navbar">
+        <a href="#" class="site-name">SecurePet</a>
+        <a href="vet_home.html" class="home">Home</a>
+        <a href="vet_booking.html" class="booking">Booking</a>
+        <a href="vet_profile.html" class="profile">Profile</a>
+    </div>
+
+
+
+    <div class="max-w-7xl mx-auto px-4 py-8">
+        <!-- Profile Header -->
+        <div class="profile-header">
+            <div class="profile-photo-container">
+                <img src="images/default-profile.jpg" alt="Profile" class="profile-photo">
+                <button class="photo-edit-btn" onclick="openModal('photoModal')">
+                    <i class="fas fa-camera"></i>
+                </button>
+            </div>
+            
+            <div class="profile-info">
+                <h1 id="profile-name">Dr. Veterinarian Name</h1>
+                <div class="profile-details">
+                    <span id="profile-region">Region: Northeast</span>
+                    <span id="profile-license">License: VET123456</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-wrapper">
+            <!-- Main Content -->
+            <div class="main-content">
+                <!-- Video Section -->
+                <div class="card">
+                    <h2>Clinic Tour</h2>
+                    <div class="video-container">
+                        <div class="no-video">No video uploaded yet</div>
+                        <button class="video-btn" onclick="openModal('videoModal')">
+                            <i class="fas fa-video"></i>
+                            Update Video
+                        </button>
+                    </div>
+                </div>
+
+                <!-- About Section -->
+                <div class="card">
+                    <h2>About Me</h2>
+                    <p class="text-content" data-section="about" id="profile-bio">
+                        Professional veterinarian dedicated to providing comprehensive care for animals.
+                    </p>
+                </div>
+
+                <!-- Specializations -->
+                <div class="card">
+                    <h2>Specializations</h2>
+                    <p class="text-content" data-section="specializations" id="profile-specializations">
+                        Waiting to be updated
+                    </p>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="card">
+                    <h2>Contact Information</h2>
+                    <div class="contact-info">
+                        <p id="profile-email"><i class="fas fa-envelope"></i>email@example.com</p>
+                        <p id="profile-phone"><i class="fas fa-phone"></i>+1 (555) 123-4567</p>
+                        <p id="profile-address"><i class="fas fa-location-dot"></i>Clinic Address</p>
+                    </div>
+                </div>
+
+                <!-- Working Hours -->
+                <div class="card">
+                    <h2>Working Hours</h2>
+                    <p class="text-content" data-section="hours" id="profile-hours">
+                        Mon-Fri: 9AM-5PM, Sat: 10AM-2PM
+                    </p>
+                </div>
+            </div>
+
+            <!-- Edit Sidebar -->
+            <div class="edit-sidebar">
+                <button class="edit-btn" onclick="openModal('editModal')">
+                    <i class="fas fa-edit"></i>
+                    Edit Profile
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modals -->
+    <!-- Photo Modal -->
+    <div id="photoModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('photoModal')">&times;</span>
+            <h2>Update Profile Photo</h2>
+            <form id="photoForm" class="modal-form">
+                <div class="form-group">
+                    <label for="photo">Choose Photo</label>
+                    <input type="file" id="photo" name="photo" accept="image/*" required>
+                    <p class="help-text">Maximum file size: 5MB. Allowed formats: JPG, PNG</p>
+                </div>
+                <div class="form-buttons">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('photoModal')">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Upload Photo</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Video Modal -->
+    <div id="videoModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('videoModal')">&times;</span>
+            <h2>Update Clinic Video</h2>
+            <form id="videoForm" class="modal-form">
+                <div class="form-group">
+                    <label for="videoUrl">YouTube Video URL</label>
+                    <input type="url" id="videoUrl" name="videoUrl" placeholder="https://www.youtube.com/watch?v=..." required>
+                    <p class="help-text">Enter a valid YouTube video URL</p>
+                </div>
+                <div class="form-buttons">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('videoModal')">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save Video</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Edit Profile Modal -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('editModal')">&times;</span>
+            <h2>Edit Profile Information</h2>
+
+
+
+
+            <div class="form-group">
+                <label for="photo">Choose Photo</label>
+                <input type="file" id="photo" name="photo" accept="image/*" required>
+                <p class="help-text">Maximum file size: 5MB. Allowed formats: JPG, PNG</p>
+            </div>
+
+
+
+
+
+
+            <form id="editProfileForm" class="modal-form">
+                <div class="form-group">
+                    <label for="bio">About Me</label>
+                    <textarea id="bio" name="bio" rows="4" placeholder="Tell us about yourself and your veterinary practice"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="specializations">Specializations</label>
+                    <input type="text" id="specializations" name="specializations" placeholder="Your veterinary areas of expertise">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Contact Number</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="address">Clinic Address</label>
+                    <textarea id="address" name="address" rows="2" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="hours">Working Hours</label>
+                    <input type="text" id="hours" name="hours" placeholder="e.g., Mon-Fri: 9AM-5PM" required>
+                </div>
+
+                <div class="form-buttons">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('editModal')">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+
+
+
+    <script src="vet_profile.js"></script>
+
+
+
+</body>
+</html>
